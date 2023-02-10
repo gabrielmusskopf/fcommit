@@ -10,14 +10,14 @@ command=""
 actions=("-ft" "-fx" "-tt" "-ch" "-st")
 
 function help_message(){
-    echo "uso: $command_name [-h | --help] [-ft | -fx | -ch | -tt | -st] \"[<mensagem do commit>]\"\n"
-    echo "Opções: \nft:\t[feat]\tNova funcionalidade\nfx:\t[fix]\tCorreção de funcionalidade existente\ntt:\t[test]\tAdição/correção de cenários de teste\nch:\t[chore]\tAlteração de dependências\nst:\t[style]\tAlteração somente na formatação"
+    echo -e "uso: $command_name [-h | --help] [-ft | -fx | -ch | -tt | -st] \"[<mensagem do commit>]\"\n"
+    echo -e "Opções: \nft:\t[feat]\tNova funcionalidade\nfx:\t[fix]\tCorreção de funcionalidade existente\ntt:\t[test]\tAdição/correção de cenários de teste\nch:\t[chore]\tAlteração de dependências\nst:\t[style]\tAlteração somente na formatação"
 }
 
 case $command_abrv in 
     h|help)
         help_message
-        return
+        exit 1
         ;;
     ft)
         command="feat"
@@ -37,19 +37,19 @@ case $command_abrv in
     *)
         echo "opção $cmd_entered desconhecida"
         help_message
-        return
+        exit 1
         ;;
 esac
 
 if [ "$2" = "" ]
 then
     echo "Deve ser informada a mensagem do commit"
-    return
+    exit 1
 fi
 
 if ! [ -d .git ]; then
     echo "Deve estar em um repositório git"
-    return
+    exit 1
 fi;
 
 branch=$(git branch --show-current)
