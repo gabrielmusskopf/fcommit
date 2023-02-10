@@ -13,7 +13,7 @@ curl -s https://raw.githubusercontent.com/gabrielmusskopf/fcommit/main/install |
 
 2. Make
 ````
-git clone https://github.com/gabrielmusskopf/fcommit.git ~/
+git clone https://github.com/gabrielmusskopf/fcommit.git ~/fcommit
 cd /fcommit
 
 sudo make install
