@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-echo "oi"
-
 BIN=/usr/local/bin
 
 echo "Installing fcommit"
-curl -s https://raw.githubusercontent.com/gabrielmusskopf/fcommit/main/fcommit -o $BIN/fcommit && chmod +x $BIN/fcommit
+sudo curl -s https://raw.githubusercontent.com/gabrielmusskopf/fcommit/main/fcommit -o $BIN/fcommit && sudo chmod +x $BIN/fcommit
 echo "fcommit successfully installed!"
