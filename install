@@ -3,5 +3,5 @@
 BIN=/usr/local/bin
 
 echo "Installing fcommit"
-sudo curl https://raw.githubusercontent.com/gabrielmusskopf/fcommit/main/fcommit -o $BIN/fcommit && sudo chmod +x $BIN/fcommit
+sudo curl -s https://raw.githubusercontent.com/gabrielmusskopf/fcommit/main/fcommit -o $BIN/fcommit && sudo chmod +x $BIN/fcommit
 echo "fcommit successfully installed!"
