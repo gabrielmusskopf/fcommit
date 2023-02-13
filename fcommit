@@ -7,11 +7,11 @@ message=$2
 command_abrv=$(echo $cmd_entered | sed 's/-//g')
 command=""
 
-actions=("-ft" "-fx" "-tt" "-ch" "-st")
+actions=("-ft" "-fx" "-tt" "-ch" "-st" "-rf")
 
 function help_message(){
     echo -e "uso: $command_name [-h | --help] [-ft | -fx | -ch | -tt | -st] \"[<mensagem do commit>]\"\n"
-    echo -e "Opções: \nft:\t[feat]\tNova funcionalidade\nfx:\t[fix]\tCorreção de funcionalidade existente\ntt:\t[test]\tAdição/correção de cenários de teste\nch:\t[chore]\tAlteração de dependências\nst:\t[style]\tAlteração somente na formatação"
+    echo -e "Opções: \nft:\t[feat]\tNova funcionalidade\nfx:\t[fix]\tCorreção de funcionalidade existente\ntt:\t[test]\tAdição/correção de cenários de teste\nch:\t[chore]\tAlteração de dependências\nst:\t[style]\tAlteração somente na formatação\nrf\t[refactor]\tRefatorar funcionalidade existente\n"
 }
 
 case $command_abrv in 
@@ -33,6 +33,9 @@ case $command_abrv in
         ;;
     st)
         command="style"
+        ;;
+    rf)
+        command="refactor"
         ;;
     *)
         echo "opção $cmd_entered desconhecida"
